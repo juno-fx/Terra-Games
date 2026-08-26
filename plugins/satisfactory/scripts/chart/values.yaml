@@ -63,3 +63,4 @@ steam_password: ""
 # World storage — chart-rendered PVC (metadata fields)
 storage_class: ""
 storage_size: 25
+restart_cron_schedule: "0 4 * * *"

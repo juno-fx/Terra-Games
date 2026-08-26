@@ -65,6 +65,7 @@ exposed); revisit if upstream lands working RCON.
 | `service_type` | `NodePort` | NodePort or LoadBalancer (needs MetalLB/cloud LB) |
 | `storage_class` | required | StorageClass for server files + saves |
 | `storage_size` | `50` | Volume size in Gi (25GB min, 50GB recommended) |
+| `restart_cron_schedule` | `0 4 * * *` | Cron schedule for auto-restart (daily at 4 AM). Set empty to disable. |
 
 ## Storage
 

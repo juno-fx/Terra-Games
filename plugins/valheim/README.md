@@ -46,6 +46,7 @@ ingress — Valheim traffic is pure UDP.
 | `service_type` | `NodePort` | NodePort (high port on every node) or LoadBalancer (external IP — needs MetalLB/cloud LB) |
 | `storage_class` | required | StorageClass for the world volume |
 | `storage_size` | `10` | World volume size in Gi |
+| `restart_cron_schedule` | `0 4 * * *` | Cron schedule for auto-restart (daily at 4 AM). Set empty to disable. |
 
 Server runs as uid/gid 1000 (pod `fsGroup: 1000`) — the storage class must allow group write.
 

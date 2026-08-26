@@ -53,3 +53,4 @@ nodeSelector: {}
 # from the metadata fields schema)
 storage_class: ""
 storage_size: 10
+restart_cron_schedule: "0 4 * * *"

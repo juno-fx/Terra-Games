@@ -66,3 +66,4 @@ nodeSelector:
 # World storage — chart-rendered PVC (metadata fields)
 storage_class: ""
 storage_size: 10
+restart_cron_schedule: "0 4 * * *"

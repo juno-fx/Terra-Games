@@ -89,3 +89,8 @@ data:
       description: "false skips file validation on startup (faster restarts)"
     - name: QUERY_PORT
       description: "Query port (UDP) — fixed at 15637 by the chart"
+    - name: restart_cron_schedule
+      description: "Cron schedule for auto-restart (e.g., '0 4 * * *' for daily at 4 AM). Set empty to disable."
+      type: string
+      required: false
+      default: "0 4 * * *"

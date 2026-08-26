@@ -56,6 +56,7 @@ announced value. Join = `<host-ip>:<N>`, reliable channel answers at N+1.
 | `service_type` | `NodePort` | NodePort or LoadBalancer (needs MetalLB/cloud LB) |
 | `storage_class` | required | StorageClass for server files + saves |
 | `storage_size` | `25` | Volume size in Gi (25GB minimum) |
+| `restart_cron_schedule` | `0 4 * * *` | Cron schedule for auto-restart (daily at 4 AM). Set empty to disable. |
 
 ## Storage
 

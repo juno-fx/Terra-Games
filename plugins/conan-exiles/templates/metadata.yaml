@@ -104,3 +104,8 @@ data:
       description: "false skips file validation on startup (faster restarts)"
     - name: MODS
       description: "Comma-separated Steam Workshop mod IDs"
+    - name: restart_cron_schedule
+      description: "Cron schedule for auto-restart (e.g., '0 4 * * *' for daily at 4 AM). Set empty to disable."
+      type: string
+      required: false
+      default: "0 4 * * *"

@@ -1,0 +1,19 @@
+{{- if .Values.restart_cron_schedule }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: "{{ .Release.Name }}-restart-cron"
+spec:
+  schedule: "{{ .Values.restart_cron_schedule }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: kubectl
+            image: "docker.io/bitnami/kubectl:latest"
+            command: ["/bin/sh", "-c"]
+            args:
+              - kubectl rollout restart statefulset/{{ .Values.name }} --namespace={{ .Release.Namespace }}
+          restartPolicy: Never
+{{- end }}

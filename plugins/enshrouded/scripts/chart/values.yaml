@@ -61,3 +61,4 @@ update_on_start: true
 # World storage — chart-rendered PVC (metadata fields)
 storage_class: ""
 storage_size: 40
+restart_cron_schedule: "0 4 * * *"
