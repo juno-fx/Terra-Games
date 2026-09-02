@@ -1,0 +1,25 @@
+{{- /*
+  Game and query traffic stays open — players are arbitrary external clients, so there is
+  no meaningful source to restrict them to. Ingress is still scoped to those two ports.
+*/ -}}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: "{{ .Release.Name }}"
+spec:
+  podSelector:
+    matchLabels:
+      kuiper.juno-innovations.com/kuiper-instance: "{{ .Release.Name }}"
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - ports:
+        - protocol: UDP
+          port: {{ include "v-rising.gamePort" . }}
+        - protocol: UDP
+          port: {{ include "v-rising.queryPort" . }}
+  # SteamCMD pulls the server files from Valve's CDN on first boot, and the server
+  # reaches out to the Steam and EOS master servers to list itself.
+  egress:
+    - {}
